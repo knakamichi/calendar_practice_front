@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
+    "date-fns": "^1.29.0",
     "lodash": "^3.10.1",
     "react": "16.3.2",
     "react-dom": "16.3.2",

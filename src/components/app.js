@@ -1,9 +1,24 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
+import Calendar from "./calendar";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
-      <div>React simple starter</div>
+      <div className="App">
+        <header>
+          <div id="logo">
+            <span className="icon">date_range</span>
+            <span>
+              User`s<b> Calendar</b>
+            </span>
+          </div>
+        </header>
+        <main>
+          <Calendar />
+        </main>
+      </div>
     );
   }
 }
+
+export default App;
