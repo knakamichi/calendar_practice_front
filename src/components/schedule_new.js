@@ -91,5 +91,5 @@ export default reduxForm({
   validate,
   form: 'ScheduleNewForm'
 })(
-  connect(null, {createSche})(ScheduleNew)
+  connect(null, {createSchedule})(ScheduleNew)
 );
