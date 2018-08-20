@@ -11,7 +11,7 @@ const FETCH_SCHEDULES ='fetch_schedules';
 const Root = window.location.origin;
 const APIRoot = `${Root}/api`;
 const APIEndpoints = {
-  SCHEDULES: APIRoot + '/schedules',
+  SCHEDULES: APIRoot + '/schedule',
 };
 
 export function fetchSchedules() {
@@ -23,9 +23,9 @@ export function fetchSchedules() {
   };
 }
 //
-export function createSchedule(values, callback) {
+export function createSchedule(values) {
   const request = axios.post(`${APIEndpoints}`, values); // rails api に合わせる
-
+  console.log(request);
   return {
     type: CREATE_SCHEDULE,
     payload: request

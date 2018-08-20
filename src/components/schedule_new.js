@@ -38,7 +38,7 @@ class ScheduleNew extends Component {
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field
           labeltoShow="予定の名前"
-          name="name_of_event"
+          name="title"
           component={this.renderField}
         />
         <Field
@@ -72,8 +72,8 @@ function validate(values) {
   // values = value of input
   const errors = {};
 
-  if (!values.name_of_event) {
-    errors.name_of_event = "予定の名前を記入してください ";
+  if (!values.title) {
+    errors.title = "予定の名前を記入してください ";
   }
   if (!values.date) {
     errors.date = "日付を記入してください ";

@@ -14,7 +14,7 @@ class Calendar extends Component {
     return _.map(this.props.schedules, schedule => {
       return (
         <li className="list-group-item" key={schedule.id}>
-          <p>{schedule.name_of_event}</p>
+          <p>{schedule.title}</p>
         </li>
       );
     });
