@@ -21,11 +21,10 @@ class Calendar extends Component {
   }
 
   render() {
-    console.log(this.props.schedules);
-    return(
+    return (
       <div>
         <ul className="list-group">
-          {this.renderSchedule}
+          {this.renderSchedule()}
         </ul>
       </div>
     );
@@ -37,7 +36,7 @@ function mapDispatchtoProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {posts: state.posts};
+  return {schedules: state.schedules};
 }
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Calendar);
