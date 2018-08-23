@@ -6,7 +6,7 @@ import {createSchedule} from '../actions';
 
 
 class ScheduleNew extends Component {
-
+// shows error when tabbed away
   renderField(field) {
     const {meta : {touched, error}} = field;
     const className = `form-group ${touched && error ? 'has-danger' : ''}`;
@@ -28,48 +28,53 @@ class ScheduleNew extends Component {
 
 // this callback is called after redux form validation
   onSubmit(values){
-    this.props.createSche(values)
+    this.props.createSchedule(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
     const {handleSubmit} = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          labeltoShow="予定の名前"
-          name="title"
-          component={this.renderField}
-        />
-        <Field
-          labeltoShow="日付"
-          name="date"
-          component={this.renderField}
-        />
-        <Field
-          labeltoShow="時間"
-          name="time"
-          component={this.renderField}
-        />
-        <Field
-          labeltoShow="場所"
-          name="place"
-          component={this.renderField}
-        />
-        <Field
-          labeltoShow="重要度 1 ~ 5 (1が最重要)"
-          name="importance"
-          component={this.renderField}
-        />
-        <button type= "submit" className="btn btn-primary">登録</button>
-        <Link to="/" className="btn btn-danger">キャンセル</Link>
-      </form>
+      <div>
+        <h2>New Schedule</h2>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Field
+            labeltoShow="予定の名前"
+            name="title"
+            component={this.renderField}
+          />
+          <Field
+            labeltoShow="日付"
+            name="date"
+            component={this.renderField}
+          />
+          <Field
+            labeltoShow="時間"
+            name="time"
+            component={this.renderField}
+          />
+          <Field
+            labeltoShow="場所"
+            name="place"
+            component={this.renderField}
+          />
+          <Field
+            labeltoShow="重要度 1 ~ 10 (1が最重要)"
+            name="importance"
+            component={this.renderField}
+          />
+          <button type= "submit" className="btn btn-primary">登録</button>
+          <Link to="/" className="btn btn-danger">キャンセル</Link>
+        </form>
+      </div>
     );
   }
 }
 
+// redux form validation
 function validate(values) {
-  // values = value of input
   const errors = {};
 
   if (!values.title) {

@@ -22,10 +22,11 @@ export function fetchSchedules() {
   };
 }
 //
-// export function createSchedule(values) {
-//   const request = axios.post(`${APIEndpoints}`, values); // rails api に合わせる
-//   return {
-//     type: CREATE_SCHEDULE,
-//     payload: request
-//   };
-// }
+export function createSchedule(values, callback) {
+  const request = axios.post(`${APIEndpoints.SCHEDULE}`, values)
+    .then(() => callback());
+  return {
+    type: CREATE_SCHEDULE,
+    payload: request
+  };
+}
