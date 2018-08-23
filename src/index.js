@@ -8,6 +8,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import App from './components/app';
 import ScheduleNew from './components/schedule_new';
+import ScheduleShow from './components/schedule_show';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -17,6 +18,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/schedules/new" component={ScheduleNew} />
+          <Route path="/schedules/:id" component={ScheduleShow} />
           <Route path="/" component={App} />
         </Switch>
       </div>

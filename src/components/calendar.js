@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import _ from 'lodash';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchSchedules} from '../actions';
+import {Link} from 'react-router-dom';
+import {fetchSchedules, deleteSchedule} from '../actions';
 
 class Calendar extends Component {
 
@@ -14,7 +15,7 @@ class Calendar extends Component {
     return _.map(this.props.schedules, schedule => {
       return (
         <li className="list-group-item" key={schedule.id}>
-          <p>{schedule.title}</p>
+          <Link to={`/schedules/${schedule.id}`}>{schedule.title}</Link>
         </li>
       );
     });
