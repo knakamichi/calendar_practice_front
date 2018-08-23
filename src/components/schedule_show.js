@@ -5,10 +5,10 @@ import {fetchSchedule, deleteSchedule} from '../actions';
 
 class SchedulesShow extends Component {
   componentDidMount() {
-    if (!this.props.schedule) {
-      const { id } = this.props.match.params;
-      this.props.fetchSchedule(id);
-    }
+    // if (!this.props.schedule) {
+    //   const { id } = this.props.match.params;
+    //   this.props.fetchSchedule(id);
+    // }
   }
 
   onDeleteClick() {
@@ -48,4 +48,4 @@ function mapStateToProps( {schedules}, ownProps ) {
   return {schedule: schedules[ownProps.match.params.id]};
 }
 
-export default connect(mapStateToProps, {fetchSchedule, deleteSchedule})(SchedulesShow);
+export default connect(mapStateToProps, {deleteSchedule})(SchedulesShow);

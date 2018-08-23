@@ -35,17 +35,17 @@ export function createSchedule(values, callback) {
 }
 
 // get single schedule
-export function fetchSchedule(id) {
-  const request = axios.get(`${APIEndpoints.SCHEDULE}/${id}`);
-  console.log(request);
-  return {
-    type: FETCH_SCHEDULE,
-    payload: request
-  };
-}
+// export function fetchSchedule(id) {
+//   const request = axios.get(`${APIEndpoints.SCHEDULE}/${id}`);
+//   return {
+//     type: FETCH_SCHEDULE,
+//     payload: request
+//   };
+// }
 
-export function deleteSchedule(id) {
-  const request = axios.delete(`${APIEndpoints.SCHEDULE}`, values);
+export function deleteSchedule(id, callback) {
+  const request = axios.delete(`${APIEndpoints.SCHEDULE}/${id}`)
+      .then(() => callback());
 
   return {
     type: DELETE_SCHEDULE,

@@ -5,11 +5,11 @@ export default function (state = {}, action ) {
   switch (action.type) {
     case FETCH_SCHEDULES:
       return _.mapKeys(action.payload.data, 'id');
-    case FETCH_SCHEDULE:
-      const schedule = action.payload.data;
-      const newState = {...state, };
-      newState[schedule.id] = schedule;
-      return newState;
+    // case FETCH_SCHEDULE:
+    //   const schedule = action.payload.data;
+    //   const newState = {...state, };
+    //   newState[schedule.id] = schedule;
+    //   return newState;
 
     // same code for above four lines
     // return { ... state, [action.payload.data.id] : action.payload.data};
