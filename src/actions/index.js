@@ -44,6 +44,8 @@ export function createSchedule(values, callback) {
 // }
 
 export function deleteSchedule(id, callback) {
+  console.log(id);
+  debugger
   const request = axios.delete(`${APIEndpoints.SCHEDULE}/${id}`)
       .then(() => callback());
 

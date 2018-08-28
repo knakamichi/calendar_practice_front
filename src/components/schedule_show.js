@@ -13,6 +13,8 @@ class SchedulesShow extends Component {
 
   onDeleteClick() {
     const { id } = this.props.match.params;
+    debugger
+    console.log(id);
     this.props.deleteSchedule(id, () => {
       this.props.history.push('/');
     });
